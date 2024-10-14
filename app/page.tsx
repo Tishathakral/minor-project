@@ -8,6 +8,10 @@ export default function Home() {
   <main>
    <HomePage />
    <TimelineDemo />
+   <div className="text-3xl flex justify-center mt-6 font-bold underline bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600">
+  Explore InquiroAI's Capabilities
+</div>
+
    <FeaturesSectionDemo />
     </main>
   );
