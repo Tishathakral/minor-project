@@ -1,20 +1,19 @@
-import React from 'react'
-import { KeywordExtractor } from './keywordExtractor'
+import React from "react";
+import { DocumentSimilarityChecker } from "./similarityChecker";
 
-
-
-export default function MainExtractor() {
+export default function DocumentSimilarity() {
   return (
     <div className="mx-auto px-4 py-12 bg-white dark:bg-neutral-950 transition duration-500 ease-in-out">
       {/* Heading */}
       <h1 className="text-5xl font-extrabold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600 dark:from-purple-400 dark:via-teal-400 dark:to-blue-500">
-        Keyword Extractor
+        Document Similarity Checker
       </h1>
-      
+
       {/* Description */}
       <p className="text-lg text-center text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto mt-2">
-        Unleash the power of your text with our Keyword Extractor. 
-        Effortlessly extract meaningful keywords and phrases from your input text, helping you identify key themes and insights for SEO.
+        Discover the similarities between your documents with our Document
+        Similarity Checker. Powered by advanced algorithms, this tool allows you
+        to compare two texts seamlessly.
       </p>
 
       {/* Steps for Usage
@@ -30,10 +29,8 @@ export default function MainExtractor() {
 
       {/* File Upload Component */}
       <div className="flex justify-center mt-10">
-    
-          <KeywordExtractor />
-       
+        <DocumentSimilarityChecker />
       </div>
     </div>
-  )
+  );
 }
