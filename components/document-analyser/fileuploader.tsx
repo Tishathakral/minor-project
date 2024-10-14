@@ -92,7 +92,7 @@ export function FileUploadDemo() {
         <input
           type="text"
           placeholder="Ask a question about the document..."
-          className="w-full md:w-2/3 p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200"
+          className={`w-full md:w-2/3 p-4 border ${!isUploaded || isAsking ? "cursor-not-allowed" : "cursor-text"} border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200`}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           disabled={!isUploaded || isAsking} // Disable input if not uploaded or asking
@@ -100,7 +100,7 @@ export function FileUploadDemo() {
         
         {/* Send button */}
         <button
-          className={`w-full md:w-1/3 p-3 ${isUploaded && !isAsking ? "bg-blue-500" : "bg-gray-300"} text-white rounded-lg hover:bg-blue-600 dark:bg-teal-500 dark:hover:bg-teal-600 transition`}
+          className={`w-full md:w-1/3 p-3 ${isUploaded && !isAsking ? "bg-blue-500" : "bg-gray-300"} ${!isUploaded || isAsking ? "cursor-not-allowed" : "cursor-pointer"} text-white rounded-lg hover:bg-blue-600 dark:bg-teal-500 dark:hover:bg-teal-600 transition`}
           onClick={handleSendQuery}
           disabled={!isUploaded || isAsking} // Disable button if not uploaded or asking
         >
