@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import Navbar from "@/components/navbarDemo";
 
 export const metadata: Metadata = {
   title: "Minor Project",
@@ -21,7 +22,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-        {children}
+             <Navbar className="sticky top-0 z-50"/>
+             {children}
+
         </ThemeProvider>
       </body>
     </html>

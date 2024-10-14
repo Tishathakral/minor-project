@@ -38,55 +38,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full bg-white dark:bg-neutral-950 font-sans md:px-10"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">    <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10 flex flex-col items-center">
-      <motion.h2
-        className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl text-center glow"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
-      >
-        How InquiroAI Will Transform the Future:
-      </motion.h2>
-      <motion.p
-        className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm text-center glow"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 1.5, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
-      >
-        InquiroAI is designed to revolutionize the way businesses interact with data. Here's how it will make a significant impact in various industries:
-      </motion.p>
-
-      <style jsx>{`
-        .glow {
-          position: relative;
-          color: #000; /* Change text color if needed */
-        }
-        .glow::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          z-index: -1;
-          background: rgba(255, 215, 0, 0.6); /* Gold color */
-          filter: blur(15px);
-          opacity: 0.5;
-          animation: glow-animation 1.5s infinite alternate;
-        }
-        @keyframes glow-animation {
-          0% {
-            opacity: 0.5;
-            transform: scale(1);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1.05);
-          }
-        }
-      `}</style>
-    </div>
-      </div>
+      
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item, index) => (
           <div
