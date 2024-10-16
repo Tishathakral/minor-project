@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { IconUpload } from "@tabler/icons-react";
+import { IconUpload } from "@tabler/icons-react"; // Import XCircle icon
 import { useDropzone } from "react-dropzone";
+import { X } from "lucide-react";
 
 const mainVariant = {
   initial: {
@@ -30,12 +31,20 @@ export const FileUpload = ({
 }: {
   onChange?: (files: File[]) => void;
 }) => {
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState<File[]>([]); // Store files
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Handle file change
   const handleFileChange = (newFiles: File[]) => {
     setFiles((prevFiles) => [...prevFiles, ...newFiles]);
     onChange && onChange(newFiles);
+  };
+
+  // Handle removing a file
+  const handleRemoveFile = (index: number) => {
+    const updatedFiles = files.filter((_, idx) => idx !== index);
+    setFiles(updatedFiles);
+    onChange && onChange(updatedFiles);
   };
 
   const handleClick = () => {
@@ -103,6 +112,11 @@ export const FileUpload = ({
                     >
                       {(file.size / (1024 * 1024)).toFixed(2)} MB
                     </motion.p>
+                    {/* Cross (Delete) Icon */}
+                    <X
+                      className="cursor-pointer text-gray-500 hover:text-gray-300 w-10 h-10"
+                      onClick={() => handleRemoveFile(idx)} // Remove the file on click
+                    />
                   </div>
 
                   <div className="flex text-sm md:flex-row flex-col items-start md:items-center w-full mt-2 justify-between text-neutral-600 dark:text-neutral-400">
