@@ -10,8 +10,8 @@ export default function Home() {
    <HomePage />
    <div className="text-4xl mt-4 font-extrabold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600 dark:from-purple-400 dark:via-teal-400 dark:to-blue-500">How InQuiroAI will Transform the Future</div>
    <TimelineDemo />
-   <div className="text-3xl flex justify-center mt-6 font-bold underline bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600">
-  Explore InquiroAI's Capabilities
+   <div id="learn-more" className="text-3xl flex justify-center mt-6 font-bold underline bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600">
+    Explore InquiroAI's Capabilities
 </div>
 
    <FeaturesSectionDemo />

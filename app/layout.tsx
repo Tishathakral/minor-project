@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbarDemo";
 
 export const metadata: Metadata = {
-  title: "Minor Project",
+  title: "InQuiro AI",
   description: "Created by Narottam Choudhary & Tisha Thakral",
 };
 
