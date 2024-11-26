@@ -1,26 +1,24 @@
-import React from 'react'
-import { KeywordExtractor } from './keywordExtractor'
-
-
+import React from "react";
+import { KeywordExtractor } from "./keywordExtractor";
 
 export default function MainExtractor() {
   return (
     <div className="mx-auto px-4 py-12 bg-white dark:bg-neutral-950 transition duration-500 ease-in-out">
       {/* Heading */}
-      <h1 className="text-5xl font-extrabold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600 dark:from-purple-400 dark:via-teal-400 dark:to-blue-500">
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-teal-400 to-purple-600 dark:from-purple-400 dark:via-teal-400 dark:to-blue-500">
         Keyword Extractor
       </h1>
-      
+
       {/* Description */}
-      <p className="text-lg text-center text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto mt-2">
-        Unleash the power of your text with our Keyword Extractor. 
-        Effortlessly extract meaningful keywords and phrases from your input text, helping you identify key themes and insights for SEO.
+      <p className="text-base sm:text-lg lg:text-xl text-center text-gray-700 dark:text-gray-300 mb-8 sm:mb-12 max-w-xl sm:max-w-2xl mx-auto">
+        Unleash the power of your text with our Keyword Extractor. Effortlessly extract meaningful keywords and phrases from your input text, helping you identify key themes and insights for SEO.
       </p>
 
-      {/* Steps for Usage
-      <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-lg transition duration-500 ease-in-out">
-        <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">How to Use the Document Analyser</h2>
-        <ol className="list-decimal list-inside text-gray-700 dark:text-gray-300 space-y-2">
+      {/* Steps for Usage */}
+      {/* Uncomment if needed */}
+      {/* <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-lg transition duration-500 ease-in-out max-w-xl mx-auto">
+        <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">How to Use the Document Analyser</h2>
+        <ol className="list-decimal list-inside text-gray-700 dark:text-gray-300 space-y-2 text-sm sm:text-base lg:text-lg">
           <li>Upload a file in PDF format by clicking on the "Choose File" button.</li>
           <li>Input your query about the document in the provided text box.</li>
           <li>Press "Enter" or click on the "Submit" button to get the relevant results extracted from the document.</li>
@@ -28,12 +26,12 @@ export default function MainExtractor() {
         </ol>
       </div> */}
 
-      {/* File Upload Component */}
-      <div className="flex justify-center mt-10">
+       {/* File Upload Component */}
+       <div className="flex justify-center mt-10">
     
-          <KeywordExtractor />
-       
-      </div>
-    </div>
+    <KeywordExtractor />
+ 
+</div>
+</div>
   )
 }
