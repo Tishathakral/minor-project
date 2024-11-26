@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
+import { toast } from "sonner";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -18,13 +19,20 @@ const ContactPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/contact", formData);
+      const response = await axios.post("https://college-minor-production.up.railway.app/contact", {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      });
       if (response.status === 200) {
         setStatusMessage("Your message has been sent successfully!");
         setFormData({ name: "", email: "", message: "" });
+        toast.success("Message sent successfully!");
       }
+
     } catch (error) {
       setStatusMessage("Error sending message. Please try again.");
+      toast.error("Error sending message. Please try again later.");
     }
   };
 
