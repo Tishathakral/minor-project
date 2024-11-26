@@ -12,7 +12,7 @@ export function DocumentSimilarityChecker() {
   // Handle finding document similarity
   const handleFindSimilarity = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/compare_documents", {
+      const response = await axios.post("https://college-minor-production.up.railway.app/compare_documents", {
         docs: [doc1Text, doc2Text],
       });
 

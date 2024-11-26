@@ -26,7 +26,7 @@ export function FileUploadDemo() {
     setIsUploading(true); // Set uploading state
 
     try {
-      const response = await axios.post("http://localhost:5000/upload", formData, {
+      const response = await axios.post("https://college-minor-production.up.railway.app/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -51,7 +51,7 @@ export function FileUploadDemo() {
     setResult("Analyzing the document..."); // Show analyzing message
 
     try {
-      const response = await axios.post("http://localhost:5000/ask", {
+      const response = await axios.post("https://college-minor-production.up.railway.app/ask", {
         question: query,
       });
 

@@ -12,7 +12,7 @@ export function KeywordExtractor() {
   const handleExtractKeywords = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/extract_keywords",
+        "https://college-minor-production.up.railway.app/extract_keywords",
         {
           text: inputText,
         }
