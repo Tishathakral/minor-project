@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
+import { Loader2 } from "lucide-react";
 
 export function DocumentSimilarityChecker() {
   const [doc1Text, setDoc1Text] = useState<string>(""); // State for document 1 text
@@ -8,9 +9,12 @@ export function DocumentSimilarityChecker() {
   const [similarityDescriptions, setSimilarityDescriptions] = useState<string>(""); // To display the similarity descriptions
   const [similarityMatrix, setSimilarityMatrix] = useState<number[][]>([]); // To display the similarity matrix
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false); // Track API call status
 
   // Handle finding document similarity
   const handleFindSimilarity = async () => {
+    setIsLoading(true); // Start loading
+    setErrorMessage(""); // Reset error message
     try {
       const response = await axios.post("https://college-minor-production.up.railway.app/compare_documents", {
         docs: [doc1Text, doc2Text],
@@ -21,7 +25,9 @@ export function DocumentSimilarityChecker() {
       setSimilarityDescriptions(response.data.similarity_descriptions.join("\n"));
     } catch (error) {
       console.error("Error fetching the similarity score:", error);
-      setErrorMessage("Error occurred while fetching similarity score.");
+      setErrorMessage("Error occurred while fetching similarity score. Please enter the text first");
+    } finally {
+      setIsLoading(false); // Stop loading
     }
   };
 
@@ -57,10 +63,17 @@ export function DocumentSimilarityChecker() {
       {/* Similarity Button */}
       <div className="flex items-center justify-center w-full p-6 border-t border-gray-300 dark:border-gray-600">
         <button
-          className="w-full p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 dark:bg-teal-500 dark:hover:bg-teal-600 transition duration-200"
+        className={`p-3 w-full text-white rounded-lg transition duration-200 ${
+          isLoading
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-blue-500 hover:bg-blue-600 dark:bg-teal-500 dark:hover:bg-teal-600"
+        }`}
           onClick={handleFindSimilarity}
+          disabled={isLoading} // Disable button while loading
         >
-          Find Similarity
+          {isLoading ? <div className="flex items-center justify-center">
+              <Loader2 className="animate-spin mr-2" size={20} /> Finding Similarity...
+            </div> : "Find Similarity"}
         </button>
       </div>
 
@@ -84,7 +97,8 @@ export function DocumentSimilarityChecker() {
           </div>
         )}
 
-        {!similarityDescriptions && !errorMessage && (
+        {/* No Results or Error */}
+        {!similarityDescriptions && !errorMessage && !isLoading && (
           <div className="mt-2 border border-gray-300 dark:border-gray-600 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
             <p className="text-gray-700 dark:text-gray-300">No similarity results available.</p>
           </div>
@@ -92,8 +106,8 @@ export function DocumentSimilarityChecker() {
 
         {/* Error Message */}
         {errorMessage && (
-          <div className="mt-2 border border-red-300 dark:border-red-600 rounded-lg p-4 bg-red-50 dark:bg-red-900">
-            <p className="text-red-700 dark:text-red-300">{errorMessage}</p>
+          <div className="mt-2 border border-gray-300 dark:border-gray-600 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
+            <p className="text-gray-700 dark:text-gray-300">{errorMessage}</p>
           </div>
         )}
       </div>

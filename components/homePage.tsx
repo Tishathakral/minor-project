@@ -83,7 +83,7 @@ const HomePage = () => {
               {/* Explore & Learn More Buttons */}
               <div className="mt-8 flex justify-center lg:justify-start">
                 <motion.a
-                  href="#explore"
+                  href="document-analyser"
                   className="inline-block px-6 py-3 mr-4 text-lg font-semibold text-white transition-all duration-200 bg-yellow-500 border border-transparent rounded-lg hover:bg-yellow-600 dark:bg-yellow-600 dark:hover:bg-yellow-500"
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
@@ -93,7 +93,7 @@ const HomePage = () => {
                   Explore Now
                 </motion.a>
                 <motion.a
-                  href="#learn-more"
+                  href="keyword-extractor"
                   className="inline-block px-6 py-3 text-lg font-semibold text-yellow-500 transition-all duration-200 bg-white border border-yellow-500 rounded-lg hover:bg-yellow-50 hover:border-yellow-600 dark:bg-gray-800 dark:text-yellow-500 dark:border-yellow-500 dark:hover:bg-gray-700"
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
